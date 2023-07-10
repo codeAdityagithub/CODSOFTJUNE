@@ -8,24 +8,21 @@ export const metadata = {
         "Immerse yourself in a world of inspiration, where passionatewriters share their expertise, personal experiences, and unique perspectives.",
 };
 
-const getData = async () => {
-    const res = await fetch(
-        "https://codsoftjune-1ecd2bce3-codeadityagithub.vercel.app/api/posts",
-        {
-            cache: "no-store",
-        }
-    );
-    if (!res.ok) {
-        throw new Error("Failed to fetch posts");
-    }
+// const getData = async () => {
+//     const res = await fetch("/api/posts", {
+//         cache: "no-store",
+//     });
+//     if (!res.ok) {
+//         throw new Error("Failed to fetch posts");
+//     }
 
-    return res.json();
-};
+//     return res.json();
+// };
 
 const Posts = async () => {
-    const posts = await getData();
+    // const posts = await getData();
 
-    return <AllPosts posts={posts} />;
+    return <AllPosts />;
 };
 
 export default Posts;

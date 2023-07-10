@@ -3,8 +3,13 @@ import React, { useState } from "react";
 
 import Postcard from "@/components/Post/Postcard";
 import styles from "@/app/posts/page.module.css";
+import useSWR from "swr";
 
-const AllPosts = ({ posts }) => {
+const AllPosts = () => {
+    const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+    const { data, error, isLoading, mutate } = useSWR("/api/posts", fetcher);
+    const posts = data;
     const [query, setQuery] = useState("");
     const filteredPosts = (array) => {
         return array.filter(
@@ -13,7 +18,7 @@ const AllPosts = ({ posts }) => {
                 e.username.toLowerCase().includes(query)
         );
     };
-    const filtered = filteredPosts(posts);
+    const filtered = posts && filteredPosts(posts);
     return (
         <>
             <div className={styles.searchContainer}>
@@ -27,10 +32,10 @@ const AllPosts = ({ posts }) => {
                 {/* <button className={styles.button}>Search</button> */}
             </div>
             <div className={styles.container}>
-                {filtered.length === 0 && (
+                {filtered?.length === 0 && (
                     <h2 className={styles.h2}>No such posts available 😓</h2>
                 )}
-                {filtered.map((post) => {
+                {filtered?.map((post) => {
                     return (
                         <Postcard
                             title={post.title}
