@@ -12,9 +12,12 @@ export const metadata = {
 };
 
 const getData = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
-        next: { revalidate: 5 },
-    });
+    const res = await fetch(
+        `https://codsoftjune-1ecd2bce3-codeadityagithub.vercel.app/api/posts/${id}`,
+        {
+            next: { revalidate: 5 },
+        }
+    );
     if (!res.ok) {
         return notFound();
     }
