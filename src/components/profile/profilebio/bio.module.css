@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    max-width: 1366px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.bio {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageContainer {
+    flex: 1;
+    max-width: 200px;
+    min-width: 200px;
+    min-height: 200px;
+    height: 100%;
+    position: relative;
+}
+.imageContainer img {
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #bbb;
+    object-fit: cover;
+}
+.credentials {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: inherit;
+    /* gap: 20px; */
+    min-width: 350px;
+    height: 100%;
+}
+
+.credentials > div {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.updatedAt {
+    font-size: 1rem;
+    color: #a1a1a1;
+}
+.name {
+    font-size: 2rem;
+}
+
+@media screen and (width<700px) {
+    .bio {
+        flex-direction: column;
+        height: auto;
+    }
+}
+@media screen and (width<600px) {
+    .updatedAt {
+        font-size: 0.9rem;
+    }
+    .row {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+}

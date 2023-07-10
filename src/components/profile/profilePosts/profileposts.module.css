@@ -1,0 +1,26 @@
+.profileContainer {
+    width: 100%;
+    margin-bottom: 50px;
+}
+.profileContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+.profileContent > a {
+    justify-self: flex-start !important;
+}
+.profileContainer > h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+@media screen and (width<600px) {
+    .profileContent > a {
+        justify-self: center !important;
+    }
+    .profileContainer > h2 {
+        text-align: center;
+    }
+}

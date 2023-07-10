@@ -1,0 +1,39 @@
+.container {
+    max-width: 1366px;
+    width: 100%;
+    min-height: 60vh;
+    margin: 0 auto;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.statsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.sections {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    box-shadow: 0 -1px 3px inset #bbb;
+    padding-left: 10px;
+}
+.section {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.active {
+    background-color: red;
+}

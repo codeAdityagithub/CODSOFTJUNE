@@ -1,0 +1,138 @@
+.container {
+    max-width: 1366px;
+    width: 100%;
+    margin: 0 auto;
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.allPosts {
+    flex-grow: 1;
+    padding: 20px;
+}
+.formContainer {
+    flex-grow: 1;
+}
+
+.form {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.input,
+.textArea {
+    margin: 20px 0;
+    font-size: 1rem;
+    background: transparent;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    padding: 10px;
+    color: inherit;
+}
+
+.button {
+    padding: 20px;
+    cursor: pointer;
+    background-color: #53c28b;
+    border: none;
+    border-radius: 5px;
+    color: #eee;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0px;
+    border: 1px solid #bbb;
+    padding: 2px;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.imgContainer {
+    width: 200px;
+    height: 120px;
+    position: relative;
+}
+
+.img {
+    object-fit: cover;
+}
+
+.delete {
+    cursor: pointer;
+    color: red;
+    padding: 10px;
+}
+
+.postTitle {
+    font-size: 1rem;
+    padding: 0 5px;
+    width: 180px;
+}
+
+@media screen and (width<900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+    .allPosts > h2 {
+        text-align: center;
+    }
+    .form > h2 {
+        text-align: center;
+    }
+    .post {
+        width: 450px;
+    }
+    .formContainer {
+        width: 450px;
+    }
+    .imgContainer {
+        width: 150px;
+        height: 100px;
+    }
+}
+@media screen and (width<600px) {
+    .post {
+        width: 400px;
+    }
+    .formContainer {
+        width: 400px;
+    }
+    .form {
+        padding: 0;
+    }
+    .imgContainer {
+        width: 150px;
+        height: 100px;
+    }
+    .postTitle {
+        font-size: 0.9rem;
+        width: 130px;
+    }
+}
+@media screen and (width<450px) {
+    .post {
+        width: 300px;
+    }
+    .formContainer {
+        width: 300px;
+    }
+
+    /* .imgContainer {
+        width: 150px;
+        height: 100px;
+    }
+    .postTitle {
+        font-size: 1rem;
+        padding: 0 5px;
+        width: 130px;
+    } */
+}
