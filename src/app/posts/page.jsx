@@ -19,10 +19,10 @@ const getData = async () => {
     return res.json();
 };
 
-const page = async () => {
+const Posts = async () => {
     const posts = await getData();
 
     return <AllPosts posts={posts} />;
 };
 
-export default page;
+export default Posts;

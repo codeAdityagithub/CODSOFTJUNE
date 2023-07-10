@@ -32,7 +32,7 @@ const getData = async (id) => {
 //     return res.json();
 // };
 
-const page = async ({ params }) => {
+const PostById = async ({ params }) => {
     const data = await getData(params.id);
     return (
         <div className={styles.container}>
@@ -59,4 +59,4 @@ const page = async ({ params }) => {
     );
 };
 
-export default page;
+export default PostById;

@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const allowedHosts = ["images.pexels.com", "images.unsplash.com"];
 
-const page = () => {
+const Dashboard = () => {
     const [err, setErr] = useState(false);
 
     const session = useSession();
@@ -142,4 +142,4 @@ const page = () => {
     }
 };
 
-export default page;
+export default Dashboard;

@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./page.module.css";
 
-const loading = () => {
+const Loading = () => {
     return (
         <div className={styles.loadcontainer}>
-            <h1>loading...</h1>
+            <h1>Loading...</h1>
         </div>
     );
 };
 
-export default loading;
+export default Loading;

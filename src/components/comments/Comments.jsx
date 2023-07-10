@@ -29,7 +29,7 @@ const Comments = ({ id }) => {
                 {isLoading
                     ? "Loading..."
                     : data?.map((comment) => (
-                          <CommentElement comment={comment} />
+                          <CommentElement comment={comment} key={comment._id} />
                       ))}
             </div>
         </div>

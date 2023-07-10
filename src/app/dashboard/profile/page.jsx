@@ -14,7 +14,7 @@ const profileSections = [
     { id: 2, stitle: "Blog Posts" },
 ];
 
-const page = () => {
+const Profile = () => {
     const session = useSession();
     const router = useRouter();
 
@@ -67,4 +67,4 @@ const page = () => {
     }
 };
 
-export default page;
+export default Profile;
