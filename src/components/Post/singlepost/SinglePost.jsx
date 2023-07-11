@@ -28,10 +28,7 @@ const SinglePost = ({ id }) => {
                         <div className={styles.info}>
                             <div className={styles.title}>{data.title}</div>
                             <div className={styles.desc}>{data.desc}</div>
-                            <Avatar
-                                image={data.image}
-                                username={data.username}
-                            />
+                            <Avatar username={data.username} />
                         </div>
                         <div className={styles.imageContainer}>
                             <Image

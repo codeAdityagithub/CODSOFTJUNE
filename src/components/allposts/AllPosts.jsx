@@ -35,6 +35,7 @@ const AllPosts = () => {
                 {filtered?.length === 0 && (
                     <h2 className={styles.h2}>No such posts available 😓</h2>
                 )}
+                {isLoading && <h2 className={styles.h2}>Loading...</h2>}
                 {filtered?.map((post) => {
                     return (
                         <Postcard

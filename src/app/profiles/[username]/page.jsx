@@ -49,7 +49,7 @@ const UserProfile = ({ params }) => {
                     ))}
                 </div>
                 <About />
-                <ProfilePosts />
+                <ProfilePosts username={params.username} />
             </div>
         </div>
     );

@@ -6,13 +6,13 @@ import { useSession } from "next-auth/react";
 
 import Postcard from "@/components/Post/Postcard";
 
-const ProfilePosts = () => {
+const ProfilePosts = ({ username }) => {
     const session = useSession();
 
     const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
     const { data, error, isLoading, mutate } = useSWR(
-        `/api/posts?username=${session?.data?.user.name}`,
+        `/api/posts?username=${username}`,
         fetcher
     );
     return (

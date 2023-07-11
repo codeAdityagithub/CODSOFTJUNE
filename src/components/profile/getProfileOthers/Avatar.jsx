@@ -4,7 +4,7 @@ import styles from "./avatar.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const Avatar = ({ image, username }) => {
+const Avatar = ({ username }) => {
     return (
         <Link className={styles.avatar} href={`/profiles/${username}`}>
             <Image
