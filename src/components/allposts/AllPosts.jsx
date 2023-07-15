@@ -36,14 +36,14 @@ const AllPosts = () => {
                     <h2 className={styles.h2}>No such posts available 😓</h2>
                 )}
                 {isLoading && <h2 className={styles.h2}>Loading...</h2>}
-                {filtered?.map((post) => {
+                {filtered?.map((post, i) => {
                     return (
                         <Postcard
                             title={post.title}
                             desc={post.desc}
                             img={post.image}
                             link={`/posts/${post._id}`}
-                            key={post.id}
+                            key={i}
                             time={post.updatedAt}
                         />
                     );
