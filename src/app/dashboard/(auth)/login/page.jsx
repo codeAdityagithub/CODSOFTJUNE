@@ -5,11 +5,12 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Login = () => {
     const session = useSession();
     const router = useRouter();
+    const errorMsg = useSearchParams();
     if (session.status === "loading") {
         return <p>Loading...</p>;
     }
@@ -46,6 +47,11 @@ const Login = () => {
                     />
                     <button className={styles.button}>Login</button>
                 </form>
+                {errorMsg.get("error") && (
+                    <p style={{ color: "#ff0033" }}>
+                        {errorMsg.get("error").substring(7)}
+                    </p>
+                )}
                 {/* <button className={styles.button + " " + styles.google}>
                     Login with Google
                 </button> */}

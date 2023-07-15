@@ -22,7 +22,7 @@ export default function Home() {
                     renewed sense of wonder.
                 </p>
                 <Link href={"/posts"} className={styles.button}>
-                    See More
+                    See Posts
                 </Link>
             </div>
 

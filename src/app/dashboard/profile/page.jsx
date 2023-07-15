@@ -60,7 +60,7 @@ const Profile = () => {
                         ))}
                     </div>
                     <About />
-                    <ProfilePosts />
+                    <ProfilePosts username={`${session?.data?.user.name}`} />
                 </div>
             </div>
         );
