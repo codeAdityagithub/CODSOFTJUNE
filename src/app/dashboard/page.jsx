@@ -9,7 +9,7 @@ import Image from "next/image";
 const allowedHosts = ["images.pexels.com", "images.unsplash.com"];
 
 const Dashboard = () => {
-    const [err, setErr] = useState(false);
+    const [err, setErr] = useState(null);
 
     const session = useSession();
     const router = useRouter();
@@ -38,15 +38,14 @@ const Dashboard = () => {
         try {
             const url = new URL(image);
             if (!allowedHosts.includes(url.hostname)) {
-                setErr(true);
+                setErr("image host not allowed!");
                 return;
             }
         } catch (err) {
-            setErr(true);
+            setErr("Type a valid image url!");
             return;
         }
 
-        e.target.reset();
         try {
             const res = await fetch("/api/posts", {
                 method: "POST",
@@ -55,10 +54,11 @@ const Dashboard = () => {
                 },
                 body: JSON.stringify({ title, desc, image, content, username }),
             });
+            e.target.reset();
             mutate();
-            setErr(false);
+            setErr(null);
         } catch (err) {
-            setErr(true);
+            setErr("Could not post your blog, Try again!");
         }
     };
 
@@ -67,9 +67,11 @@ const Dashboard = () => {
             const res = await fetch(`/api/posts/${id}`, {
                 method: "DELETE",
             });
+            setErr(null);
+
             mutate();
         } catch (err) {
-            setErr(true);
+            setErr("Could not delete your blog, Try again!");
         }
     };
     if (session.status === "authenticated") {
@@ -134,8 +136,12 @@ const Dashboard = () => {
                             required
                         ></textarea>
                         <button className={styles.button}>Upload</button>
+                        {err && (
+                            <p style={{ marginTop: "1rem", color: "red" }}>
+                                {err}
+                            </p>
+                        )}
                     </form>
-                    {err && "Something went Wrong!"}
                 </div>
             </div>
         );

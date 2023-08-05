@@ -21,9 +21,9 @@ export default function RootLayout({ children }) {
                         <div className="container">
                             <Navbar />
                             {children}
-                            <Footer />
                         </div>
                     </AuthProvider>
+                    <Footer />
                 </ThemeProvider>
             </body>
         </html>
