@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
 .allPosts {
     flex-grow: 1;

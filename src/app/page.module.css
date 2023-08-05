@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    margin-top: 130px;
+    /* margin-top: 130px; */
 }
 .heroSection {
     flex: 1;
