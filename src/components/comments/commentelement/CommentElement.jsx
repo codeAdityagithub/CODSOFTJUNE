@@ -75,6 +75,7 @@ const CommentElement = ({ comment, mutate }) => {
                         transition: "0.3s all",
                         transformOrigin: "top",
                     }}
+                    key={reply._id}
                 >
                     <div className={styles.header}>
                         <div className={styles.username}>{reply.username}</div>
