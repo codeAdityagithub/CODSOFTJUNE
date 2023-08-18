@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./comment.module.css";
+import AddReplyForm from "@/components/addReplyForm/AddReplyForm";
 
 function TimeAgo({ date }) {
     const getTimeAgo = (date) => {
@@ -28,7 +29,17 @@ function TimeAgo({ date }) {
     return <div>{getTimeAgo(date)}</div>;
 }
 
-const CommentElement = ({ comment }) => {
+const CommentElement = ({ comment, mutate }) => {
+    const [formvisible, setFormVisible] = useState(false);
+    const [repliesVisible, setRepliesVisible] = useState(false);
+
+    const openForm = () => {
+        setFormVisible((prev) => !prev);
+    };
+    const openReplies = () => {
+        setRepliesVisible((prev) => !prev);
+    };
+
     return (
         <div className={styles.commentContainer}>
             <div className={styles.header}>
@@ -38,6 +49,46 @@ const CommentElement = ({ comment }) => {
                 </div>
             </div>
             <div className={styles.content}>{comment.content}</div>
+            <div className={styles.stats}>
+                <div className={styles.likes}>Likes</div>
+                <div className={styles.dislikes}>Dislikes</div>
+                <div className={styles.replyButton} onClick={openForm}>
+                    Reply
+                </div>
+            </div>
+            <AddReplyForm
+                visible={formvisible}
+                c_Id={comment._id}
+                mutate={mutate}
+            />
+            <div className={styles.openReplyButton} onClick={openReplies}>
+                {comment.replies.length == 1
+                    ? "1 Reply"
+                    : `${comment.replies.length} Replies`}
+            </div>
+            {comment.replies.map((reply) => (
+                <div
+                    className={styles.replyContainer}
+                    style={{
+                        height: `${repliesVisible ? "100%" : "0"}`,
+                        opacity: `${repliesVisible ? "100%" : "0"}`,
+                        transition: "0.3s all",
+                        transformOrigin: "top",
+                    }}
+                >
+                    <div className={styles.header}>
+                        <div className={styles.username}>{reply.username}</div>
+                        <div className={styles.time}>
+                            <TimeAgo date={new Date(reply.updatedAt)} />
+                        </div>
+                    </div>
+                    <div className={styles.content}>{reply.content}</div>
+                    <div className={styles.stats}>
+                        <div className={styles.likes}>Likes</div>
+                        <div className={styles.dislikes}>Dislikes</div>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 };

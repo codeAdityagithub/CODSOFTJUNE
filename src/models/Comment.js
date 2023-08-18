@@ -2,6 +2,20 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
+const replySchema = new Schema(
+    {
+        username: {
+            type: String,
+            required: true,
+        },
+        content: {
+            type: String,
+            required: true,
+        },
+    },
+    { timestamps: true }
+);
+
 const commentSchema = new Schema(
     {
         username: {
@@ -15,6 +29,9 @@ const commentSchema = new Schema(
         content: {
             type: String,
             required: true,
+        },
+        replies: {
+            type: [replySchema],
         },
     },
     { timestamps: true }

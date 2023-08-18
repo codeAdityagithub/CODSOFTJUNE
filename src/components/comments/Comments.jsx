@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import useSWR from "swr";
 
 import AddCommentForm from "@/components/addcommentform/AddCommentForm";
@@ -29,7 +29,13 @@ const Comments = ({ id }) => {
                 {isLoading
                     ? "Loading..."
                     : data?.map((comment) => (
-                          <CommentElement comment={comment} key={comment._id} />
+                          <>
+                              <CommentElement
+                                  comment={comment}
+                                  key={comment._id}
+                                  mutate={mutate}
+                              />
+                          </>
                       ))}
             </div>
         </div>

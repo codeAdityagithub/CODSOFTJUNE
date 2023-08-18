@@ -1,0 +1,42 @@
+.commentForm {
+    width: 100%;
+    position: relative;
+    transition: 0.3s all;
+    margin-bottom: 10px;
+}
+.button {
+    padding: 5px;
+    background-color: #53c28b;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+
+.commentArea {
+    background: transparent;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+    width: 100%;
+    font-size: 0.9rem;
+    color: inherit;
+    /* border: 1px gray solid; */
+    box-shadow: 0 0 4px rgba(178, 178, 178, 0.5);
+}
+.commentArea:focus {
+    outline-width: 0;
+}
+
+.toggle {
+    font-size: 1.5rem;
+}
+
+.err {
+    color: red;
+    font-size: 0.8rem;
+}
