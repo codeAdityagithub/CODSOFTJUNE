@@ -7,18 +7,14 @@
 .container {
     max-width: 1366px;
     width: 100%;
-    min-height: 60vh;
+    height: fit-content;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-bottom: 50px;
     justify-content: space-around;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     position: relative;
     gap: 20px;
-    transform: translateY(-50px);
-}
-.container:last-child {
-    margin-bottom: 50px;
 }
 
 .searchContainer {
