@@ -10,12 +10,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 const Login = () => {
     const session = useSession();
     const router = useRouter();
-    const errorMsg = useSearchParams();
+    const params = useSearchParams();
     if (session.status === "loading") {
         return <p>Loading...</p>;
     }
     if (session.status === "authenticated") {
-        router?.push("/dashboard");
+        router?.push(`${params.get("callbackUrl")}`);
     }
 
     const handleSubmit = (e) => {
@@ -47,9 +47,9 @@ const Login = () => {
                     />
                     <button className={styles.button}>Login</button>
                 </form>
-                {errorMsg.get("error") && (
+                {params.get("error") && (
                     <p style={{ color: "#ff0033" }}>
-                        {errorMsg.get("error").substring(7)}
+                        {params.get("error").substring(7)}
                     </p>
                 )}
                 {/* <button className={styles.button + " " + styles.google}>

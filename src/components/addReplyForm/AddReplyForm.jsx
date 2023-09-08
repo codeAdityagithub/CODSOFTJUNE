@@ -15,7 +15,7 @@ const AddReplyForm = ({ c_Id, visible, mutate }) => {
             session?.status === "unauthenticated" ||
             session?.status === "loading"
         ) {
-            router.push("/dashboard/login");
+            router.push("/dashboard/login?callbackUrl=/posts");
         }
         if (session?.status === "authenticated") {
             const content = e.target[0].value;

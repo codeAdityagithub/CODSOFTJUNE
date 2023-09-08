@@ -9,6 +9,14 @@ const handler = NextAuth({
         CredentialsProvider({
             id: "credentials",
             name: "Credentials",
+            // credentials: {
+            //     username: {
+            //         label: "Email",
+            //         type: "email",
+            //         placeholder: "abc@email.com",
+            //     },
+            //     password: { label: "Password", type: "password" },
+            // },
             async authorize(credentials) {
                 //checking if user exists
                 await connect();
@@ -40,7 +48,9 @@ const handler = NextAuth({
         }),
     ],
     pages: {
-        error: "/dashboard/login",
+        error: "/userauth/login",
+        signIn: "/userauth/login",
+        
     },
 });
 

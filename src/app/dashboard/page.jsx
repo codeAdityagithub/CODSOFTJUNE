@@ -25,7 +25,7 @@ const Dashboard = () => {
         return <h3>Loading...</h3>;
     }
     if (session.status === "unauthenticated") {
-        router?.push("/dashboard/login");
+        router?.push("/dashboard/login?callbackUrl=/dashboard");
     }
 
     const handleSubmit = async (e) => {

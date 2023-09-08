@@ -34,7 +34,7 @@ const Profile = () => {
         return <h3>Loading...</h3>;
     }
     if (session.status === "unauthenticated") {
-        router?.push("/dashboard/login");
+        router?.push("/userauth/login?callbackUrl=/dashboard/profile");
     }
 
     if (session.status === "authenticated") {

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import styles from "./addcomment.module.css";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 const AddCommentForm = ({ id, mutate }) => {
     const [err, setErr] = useState(false);
@@ -15,7 +15,7 @@ const AddCommentForm = ({ id, mutate }) => {
             session?.status === "unauthenticated" ||
             session?.status === "loading"
         ) {
-            router.push("/dashboard/login");
+            router.push("/userauth/login?callbackUrl=/posts");
         }
         if (session?.status === "authenticated") {
             const content = e.target[0].value;
