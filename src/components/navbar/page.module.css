@@ -33,7 +33,7 @@
 
 .navVertical {
     position: absolute;
-    width: 130%;
+    width: calc(100% + 41px);
     height: 100vh;
     display: none;
     flex-direction: column;
@@ -48,10 +48,10 @@
 }
 
 .open {
-    transform: translateX(-13%);
+    transform: translateX(-41px);
 }
 .closed {
-    transform: translateX(-110%);
+    transform: translateX(calc(-100% - 40px));
 }
 
 .toggle {
@@ -87,5 +87,17 @@
     .navVertical > a {
         font-size: 1.2rem;
         font-weight: 500;
+    }
+}
+@media screen and (width>600px) {
+    .navVertical {
+        width: calc(100% + 120px);
+    }
+
+    .open {
+        transform: translateX(-80px);
+    }
+    .closed {
+        transform: translateX(calc(-100% - 80px));
     }
 }
