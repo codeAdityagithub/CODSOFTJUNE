@@ -3,13 +3,9 @@ import React, { useState } from "react";
 
 import Postcard from "@/components/Post/Postcard";
 import styles from "@/app/posts/page.module.css";
-import useSWR from "swr";
 
-const AllPosts = () => {
-    const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
-    const { data, error, isLoading, mutate } = useSWR("/api/posts", fetcher);
-    const posts = data;
+const AllPosts = ({posts}) => {
+    
     const [query, setQuery] = useState("");
     const filteredPosts = (array) => {
         return array.filter(
@@ -35,7 +31,7 @@ const AllPosts = () => {
                 {filtered?.length === 0 && (
                     <h2 className={styles.h2}>No such posts available 😓</h2>
                 )}
-                {isLoading && <h2 className={styles.h2}>Loading...</h2>}
+                {/* {isLoading && <h2 className={styles.h2}>Loading...</h2>} */}
                 {filtered?.map((post, i) => {
                     return (
                         <Postcard

@@ -1,6 +1,8 @@
 import React from "react";
 
+
 import AllPosts from "@/components/allposts/AllPosts";
+
 
 export const metadata = {
     title: "BLOGiT - All Posts",
@@ -8,21 +10,21 @@ export const metadata = {
         "Immerse yourself in a world of inspiration, where passionatewriters share their expertise, personal experiences, and unique perspectives.",
 };
 
-// const getData = async () => {
-//     const res = await fetch("/api/posts", {
-//         cache: "no-store",
-//     });
-//     if (!res.ok) {
-//         throw new Error("Failed to fetch posts");
-//     }
+export const revalidate = 60;
 
-//     return res.json();
-// };
+const getData = async () => {
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts`);
+    if(!res.ok) return [];
+    const data = await res.json();
+    return data;
+};
 
 const Posts = async () => {
-    // const posts = await getData();
+    const posts = await getData();
 
-    return <AllPosts />;
+    return (
+        <AllPosts posts={posts} />
+    );
 };
 
 export default Posts;

@@ -11,7 +11,7 @@ const allowedHosts = ["images.pexels.com", "images.unsplash.com"];
 const Dashboard = () => {
     const [err, setErr] = useState(null);
 
-    const session = useSession();
+    const session = useSession(); 
     const router = useRouter();
 
     const fetcher = (...args) => fetch(...args).then((res) => res.json());
