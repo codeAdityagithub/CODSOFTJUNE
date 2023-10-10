@@ -15,7 +15,7 @@ const Login = () => {
         return <p>Loading...</p>;
     }
     if (session.status === "authenticated") {
-        router?.push(`${params.get("callbackUrl")}`);
+        router?.push(`${params.get("callbackUrl")??"/"}`);
     }
 
     const handleSubmit = (e) => {
